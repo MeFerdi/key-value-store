@@ -27,8 +27,8 @@ The server will start on port 8080 by default.
 
 ### API Usage
 
-The project uses gRPC. You can use the provided test client or any gRPC client to interact with the node.
+The project uses gRPC. You can use the provided test clients to interact with the node. See [test_client/README.md](test_client/README.md) for details.
 
 ```bash
-go run test_client/main.go
+go run test_client/client/main.go
 ```
