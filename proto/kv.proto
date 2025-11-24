@@ -11,6 +11,17 @@ service KVStore {
 
   // Internal API
   rpc AppendEntries(AppendEntriesRequest) returns (AppendEntriesResponse);
+  rpc Join(JoinRequest) returns (JoinResponse);
+}
+
+message JoinRequest {
+  string node_id = 1;
+  string raft_address = 2;
+  string grpc_address = 3;
+}
+
+message JoinResponse {
+  bool success = 1;
 }
 
 message PutRequest {
@@ -20,6 +31,7 @@ message PutRequest {
 
 message PutResponse {
   bool success = 1;
+  string leader_hint = 2;
 }
 
 message GetRequest {
@@ -29,6 +41,7 @@ message GetRequest {
 message GetResponse {
   string value = 1;
   bool found = 2;
+  string leader_hint = 3;
 }
 
 message LogEntry {
